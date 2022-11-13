@@ -15,7 +15,6 @@ function Game() {
     let [board, setBoard] = useState([]);
     let [timeoutHandler, setTimeoutHandler] = useState(null);
     let [interval, setInterval] = useState(1000);
-    let [cellColor, setCellColor] = useState(`#FFFFFF`);
 
     useEffect(() => {
         handleInitial();
@@ -31,7 +30,6 @@ function Game() {
     useEffect(() => {
         if(cells.length != 0){
             if (isRunning){
-                setRandomColor()
                 setTimeoutHandler(window.setTimeout(() => {
                     runIteration();
                 }, interval))
@@ -47,8 +45,7 @@ function Game() {
         randomNumber = randomNumber.toString(16);
         let randColor = randomNumber.padStart(6, 0);
         randColor = "#" + randColor
-        console.log("here: ", randColor)   
-        setCellColor(randColor.toUpperCase())
+        return randColor.toUpperCase();
     }
 
     function calculateNeighbors(board, x, y) {
@@ -81,7 +78,8 @@ function Game() {
         for (let y=0; y < rows; y++){
             for (let x=0; x< cols; x++){
                 if(board[y][x]){
-                    temp_cells.push({x,y})
+                    let color = setRandomColor()
+                    temp_cells.push({x,y, color})
                 }
             }
         }
@@ -130,57 +128,57 @@ function Game() {
         // }
         let list = [
             // the pulsar pattern
-            // [9, 12],
-            // [10, 12],
-            // [11, 12],
-            // [12, 11],
-            // [12, 10],
-            // [12, 9],
-            // [11, 7],
-            // [10, 7],
-            // [9, 7],
-            // [7, 11],
-            // [7, 10],
-            // [7, 9],
+            [9, 12],
+            [10, 12],
+            [11, 12],
+            [12, 11],
+            [12, 10],
+            [12, 9],
+            [11, 7],
+            [10, 7],
+            [9, 7],
+            [7, 11],
+            [7, 10],
+            [7, 9],
 
-            // [9, 14],
-            // [10, 14],
-            // [11, 14],
-            // [12, 15],
-            // [12, 16],
-            // [12, 17],
-            // [11, 19],
-            // [10, 19],
-            // [9, 19],
-            // [7, 15],
-            // [7, 16],
-            // [7, 17],
+            [9, 14],
+            [10, 14],
+            [11, 14],
+            [12, 15],
+            [12, 16],
+            [12, 17],
+            [11, 19],
+            [10, 19],
+            [9, 19],
+            [7, 15],
+            [7, 16],
+            [7, 17],
 
-            // [14, 9],
-            // [14, 10],
-            // [14, 11],
-            // [15, 12],
-            // [16, 12],
-            // [17, 12],
-            // [19, 11],
-            // [19, 10],
-            // [19, 9],
-            // [15, 7],
-            // [16, 7],
-            // [17, 7],
+            [14, 9],
+            [14, 10],
+            [14, 11],
+            [15, 12],
+            [16, 12],
+            [17, 12],
+            [19, 11],
+            [19, 10],
+            [19, 9],
+            [15, 7],
+            [16, 7],
+            [17, 7],
 
-            // [15, 14],
-            // [16, 14],
-            // [17, 14],
-            // [14, 15],
-            // [14, 16],
-            // [14, 17],
-            // [15, 19],
-            // [16, 19],
-            // [17, 19],
-            // [19, 15],
-            // [19, 16],
-            // [19, 17],
+            [15, 14],
+            [16, 14],
+            [17, 14],
+            [14, 15],
+            [14, 16],
+            [14, 17],
+            [15, 19],
+            [16, 19],
+            [17, 19],
+            [19, 15],
+            [19, 16],
+            [19, 17],
 
             // The Penta-decathlon pattern 
             [9, 5],
@@ -253,7 +251,7 @@ function Game() {
                     <Cell 
                         x={cell.x} 
                         y={cell.y} 
-                        color={cellColor}
+                        color={cell.color}
                         key={`${cell.x}, ${cell.y}`}
                     />
                 ))

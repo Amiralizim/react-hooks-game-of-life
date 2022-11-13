@@ -4,17 +4,6 @@ function Cell({x, y, color}) {
     const CELL_SIZE = 20;
 
     useEffect(() => {
-        // index1 = Math.random()
-        // index2 = Math.random()
-        // index3 = Math.random()
-        // setCellColor(`rgb(${index1}, ${index2}, ${index2})`)
-        // setCellColor(`0xFFFFFF`)
-        // let maxVal = `0xFFFFFF`;
-        // let randomNum = Math.random() * maxVal;
-        // let randomNumber = Math.floor(randomNum);
-        // randomNumber = randomNumber.toString(16);
-        // let randColor = randomNumber.padStart(6, 0);   
-        // setCellColor(randColor.toUpperCase())
         console.log("color: ", color)
     }, [color])
 
