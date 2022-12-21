@@ -1,9 +1,9 @@
 ## About the project 
-This project was designed for fun for seeing cool game of life patterns on the screen. The user is able to tweek the rules of the game, the initial patterns they want to see and so on. The initial idea of the project was taken from https://github.com/charlee/react-gameoflife
+This project was designed for fun for seeing cool game of life patterns on the screen. The initial idea of the project was taken from https://github.com/charlee/react-gameoflife
 
 To run the project simply clone the repository and run npm start. 
 
-
+### `npm install`
 ### `npm start`
 
 Runs the app in the development mode.\
